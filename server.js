@@ -8,7 +8,6 @@ var router = express.Router();
 
 //replace this with your Mongolab URL
 //mongoose.connect('mongodb://localhost/mp4');
-mongoose.connect('mongodb://mp4:xren11498mp4@ds021010.mlab.com:21010/cs498_mp4');
 
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
@@ -46,7 +45,7 @@ app.use('/api', router);
 var homeRoute = router.route('/');
 
 homeRoute.get(function(req, res) {
-    res.json({message: 'Hello World!'});
+    re
 });
 
 //Add more routes here
@@ -106,6 +105,7 @@ userRoute.post(function(req, res) {
         res.status(404).json({message: 'invalid data'});
     }
     else {
+
         var user = new User();
 
         if (req.body.name != null && req.body.name != "" && req.body.name != undefined) {
@@ -291,6 +291,9 @@ taskRoute.post(function(req, res) {
         res.status(404).json({message: 'invalid data'});
     }
     else {
+
+
+
         var task = new Task();
         if (req.body.name != null && req.body.name != "" && req.body.name != undefined) {
             task.name = req.body.name;
